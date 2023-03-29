@@ -1,9 +1,21 @@
 spring:
+  data:
+    web:
+      pageable:
+        page-parameter: page # pagina
+        size-parameter: size # tamanho
+      sort:
+        sort-parameter: sort # ordem
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/vollmed_api
     username: root
     password: root
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format-sql: true
   output:
     ansi:
       enabled: always
