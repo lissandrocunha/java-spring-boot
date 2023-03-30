@@ -5,6 +5,7 @@ create table medicos(
     crm varchar(6) not null unique,
     especialidade varchar(100) not null,
     logradouro varchar(100) not null,
+    numero varchar(20),
     bairro varchar(100) not null,
     cep varchar(9) not null,
     complemento varchar(20),

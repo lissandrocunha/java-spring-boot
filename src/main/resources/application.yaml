@@ -7,7 +7,7 @@ spring:
       sort:
         sort-parameter: sort # ordem
   datasource:
-    driverClassName: com.mysql.jdbc.Driver
+    driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/vollmed_api
     username: root
     password: root
