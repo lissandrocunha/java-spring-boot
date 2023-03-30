@@ -20,8 +20,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/medicos")
 
@@ -30,21 +28,21 @@ public class MedicoController {
     @Autowired
     private MedicoRepository medicoRepository;
 
+    @GetMapping
+    public Page<DadosListagemMedico> listar(
+            @PageableDefault(size = 10, page = 0) Pageable paginacao
+    ) {
+        return medicoRepository
+                .findAllByAtivoTrue(paginacao)
+                .map(DadosListagemMedico::new);
+    }
+
     @PostMapping
     @Transactional
     public void cadastrar(
             @RequestBody @Valid DadosCadastroMedico dados
     ) {
         medicoRepository.save(new Medico(dados));
-    }
-
-    @GetMapping
-    public Page<DadosListagemMedico> listar(
-           @PageableDefault(size = 10, page = 0) Pageable paginacao
-    ) {
-        return medicoRepository
-                .findAll(paginacao)
-                .map(DadosListagemMedico::new);
     }
 
     @PutMapping
@@ -61,7 +59,7 @@ public class MedicoController {
     public void excluir(
             @PathVariable Long id
     ){
-        medicoRepository
-                .deleteById(id);
+        var medico = medicoRepository.getReferenceById(id);
+        medico.inativar();
     }
 }

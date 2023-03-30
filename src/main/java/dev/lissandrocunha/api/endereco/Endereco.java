@@ -1,7 +1,7 @@
 package dev.lissandrocunha.api.endereco;
 
 import jakarta.persistence.Embeddable;
-import jakarta.persistence.Table;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -30,7 +30,7 @@ public class Endereco {
         this.numero = dados.numero();
     }
 
-    public void atualizarInformacoes(DadosEndereco dados) {
+    public void atualizarInformacoes(@Valid DadosEndereco dados) {
         if (dados.logradouro() != null){
             this.logradouro = dados.logradouro();
         }
