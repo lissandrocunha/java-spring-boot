@@ -1,4 +1,4 @@
-package dev.lissandrocunha.api.endereco;
+package dev.lissandrocunha.api.domain.endereco;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.Valid;

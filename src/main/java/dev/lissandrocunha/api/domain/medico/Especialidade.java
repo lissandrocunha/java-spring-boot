@@ -1,4 +1,4 @@
-package dev.lissandrocunha.api.medico;
+package dev.lissandrocunha.api.domain.medico;
 
 public enum Especialidade {
     ORTOPEDIA,

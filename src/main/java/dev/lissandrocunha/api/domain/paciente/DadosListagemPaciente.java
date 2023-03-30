@@ -1,6 +1,4 @@
-package dev.lissandrocunha.api.paciente;
-
-import dev.lissandrocunha.api.medico.DadosListagemMedico;
+package dev.lissandrocunha.api.domain.paciente;
 
 public record DadosListagemPaciente(
         String nome,

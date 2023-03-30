@@ -1,11 +1,11 @@
 package dev.lissandrocunha.api.controller;
 
-import dev.lissandrocunha.api.medico.DadosAtualizacaoMedico;
-import dev.lissandrocunha.api.medico.DadosCadastroMedico;
-import dev.lissandrocunha.api.medico.DadosDetalhamentoMedico;
-import dev.lissandrocunha.api.medico.DadosListagemMedico;
-import dev.lissandrocunha.api.medico.Medico;
-import dev.lissandrocunha.api.medico.MedicoRepository;
+import dev.lissandrocunha.api.domain.medico.DadosAtualizacaoMedico;
+import dev.lissandrocunha.api.domain.medico.DadosCadastroMedico;
+import dev.lissandrocunha.api.domain.medico.DadosDetalhamentoMedico;
+import dev.lissandrocunha.api.domain.medico.DadosListagemMedico;
+import dev.lissandrocunha.api.domain.medico.Medico;
+import dev.lissandrocunha.api.domain.medico.MedicoRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

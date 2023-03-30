@@ -1,11 +1,11 @@
 package dev.lissandrocunha.api.controller;
 
-import dev.lissandrocunha.api.paciente.DadosAtualizacaoPaciente;
-import dev.lissandrocunha.api.paciente.DadosCadastroPaciente;
-import dev.lissandrocunha.api.paciente.DadosDetalhamentoPaciente;
-import dev.lissandrocunha.api.paciente.DadosListagemPaciente;
-import dev.lissandrocunha.api.paciente.Paciente;
-import dev.lissandrocunha.api.paciente.PacienteRepository;
+import dev.lissandrocunha.api.domain.paciente.DadosAtualizacaoPaciente;
+import dev.lissandrocunha.api.domain.paciente.DadosCadastroPaciente;
+import dev.lissandrocunha.api.domain.paciente.DadosDetalhamentoPaciente;
+import dev.lissandrocunha.api.domain.paciente.DadosListagemPaciente;
+import dev.lissandrocunha.api.domain.paciente.Paciente;
+import dev.lissandrocunha.api.domain.paciente.PacienteRepository;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

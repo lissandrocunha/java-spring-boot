@@ -1,6 +1,6 @@
-package dev.lissandrocunha.api.paciente;
+package dev.lissandrocunha.api.domain.paciente;
 
-import dev.lissandrocunha.api.endereco.Endereco;
+import dev.lissandrocunha.api.domain.endereco.Endereco;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

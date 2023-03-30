@@ -1,4 +1,4 @@
-package dev.lissandrocunha.api.medico;
+package dev.lissandrocunha.api.domain.medico;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

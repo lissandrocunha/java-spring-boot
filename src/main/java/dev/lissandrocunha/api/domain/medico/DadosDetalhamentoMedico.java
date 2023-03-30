@@ -1,6 +1,6 @@
-package dev.lissandrocunha.api.medico;
+package dev.lissandrocunha.api.domain.medico;
 
-import dev.lissandrocunha.api.endereco.Endereco;
+import dev.lissandrocunha.api.domain.endereco.Endereco;
 
 public record DadosDetalhamentoMedico(
         Long id,
