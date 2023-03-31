@@ -24,3 +24,8 @@ spring:
   output:
     ansi:
       enabled: always
+
+api:
+  security:
+    token:
+      secret: ${JWT_SECRET:12345678}

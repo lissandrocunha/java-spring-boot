@@ -2,6 +2,7 @@ package dev.lissandrocunha.api.controller;
 
 import dev.lissandrocunha.api.domain.usuario.DadosAutenticacao;
 import dev.lissandrocunha.api.domain.usuario.Usuario;
+import dev.lissandrocunha.api.infra.security.DadosTokenJWT;
 import dev.lissandrocunha.api.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +25,14 @@ public class AutenticacaoController {
     private TokenService tokenService;
 
     @PostMapping
-    public ResponseEntity<String> login(
+    public ResponseEntity<DadosTokenJWT> login(
         @RequestBody @Valid DadosAutenticacao dados
     ){
-        var token = new UsernamePasswordAuthenticationToken(dados.login(),dados.senha());
-        var authentication = authenticationManager.authenticate(token);
+        var authenticationToken = new UsernamePasswordAuthenticationToken(dados.login(),dados.senha());
+        var authentication = authenticationManager.authenticate(authenticationToken);
+        var tokenJWT = tokenService.gerarToken((Usuario) authentication.getPrincipal());
 
         return ResponseEntity
-                .ok(tokenService.gerarToken((Usuario) authentication.getPrincipal()));
+                .ok(new DadosTokenJWT(tokenJWT));
     }
 }
