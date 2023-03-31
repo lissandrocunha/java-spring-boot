@@ -8,26 +8,23 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 public record DadosCadastroMedico(
-
-        @NotBlank
+        @NotBlank(message = "{nome.obrigatorio}")
         String nome,
 
-        @NotBlank
-        @Email
+        @NotBlank(message = "{email.obrigatorio}")
+        @Email(message = "{email.invalido}")
         String email,
 
-        @NotBlank
-        @Pattern(regexp = "\\d{4,6}")
-        String crm,
-
-        @NotBlank
+        @NotBlank(message = "{telefone.obrigatorio}")
         String telefone,
 
-        @NotNull
+        @NotBlank(message = "{crm.obrigatorio}")
+        @Pattern(regexp = "\\d{4,6}", message = "{crm.invalido}")
+        String crm,
+
+        @NotNull(message = "{especialidade.obrigatoria}")
         Especialidade especialidade,
 
-        @NotNull
+        @NotNull(message = "{endereco.obrigatorio}")
         @Valid
-        DadosEndereco endereco
-) {
-}
+        DadosEndereco endereco) {}
