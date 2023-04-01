@@ -47,7 +47,7 @@ public class SecurityFilter extends OncePerRequestFilter {
         var authorizationHeader = request.getHeader("Authorization");
         if (authorizationHeader != null && authorizationHeader.toLowerCase().startsWith("bearer "))
         {
-            return authorizationHeader.substring(authorizationHeader.indexOf(' ' + 1));
+            return authorizationHeader.substring(authorizationHeader.indexOf(' ') + 1);
         }
         return authorizationHeader;
     }
