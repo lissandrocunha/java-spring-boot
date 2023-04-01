@@ -30,9 +30,7 @@ public class ConsultaController {
         var agendamento = agendaDeConsultasService.agendar(dados);
 
         return ResponseEntity
-                .ok(
-                        new DadosDetalhamentoConsulta(null, null, null, null)
-                );
+                .ok(agendamento);
     }
 
     @DeleteMapping

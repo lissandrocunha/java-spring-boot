@@ -1,5 +1,6 @@
 package dev.lissandrocunha.api.infra.exception;
 
+import dev.lissandrocunha.api.domain.BusinessException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -35,11 +36,22 @@ public class TratadorDeErros {
                 );
     }
 
+    @ExceptionHandler(BusinessException.class)
+    public ResponseEntity<String> tratarErrorRegraDeNegocio(BusinessException exception){
+        return ResponseEntity
+                .badRequest()
+                .body(
+                        exception.getMessage()
+                );
+    }
+
     @ExceptionHandler(EntityNotFoundException.class)
     public ResponseEntity<Void> tratarError404(){
         return ResponseEntity
                 .notFound()
                 .build();
     }
+
+
 
 }
