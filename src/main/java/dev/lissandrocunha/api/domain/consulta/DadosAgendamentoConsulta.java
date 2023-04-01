@@ -1,12 +1,13 @@
 package dev.lissandrocunha.api.domain.consulta;
 
+import dev.lissandrocunha.api.domain.medico.Especialidade;
 import jakarta.validation.constraints.Future;
 import jakarta.validation.constraints.NotNull;
 
 import java.time.LocalDateTime;
 
 public record DadosAgendamentoConsulta(
-        @NotNull
+
         Long idMedico,
 
         @NotNull
@@ -14,6 +15,9 @@ public record DadosAgendamentoConsulta(
 
         @NotNull
         @Future
-        LocalDateTime data
+        LocalDateTime data,
+
+
+        Especialidade especialidade
 ) {
 }
