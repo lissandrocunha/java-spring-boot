@@ -2,11 +2,13 @@ package dev.lissandrocunha.api.controller;
 
 import dev.lissandrocunha.api.domain.consulta.AgendaDeConsultas;
 import dev.lissandrocunha.api.domain.consulta.DadosAgendamentoConsulta;
+import dev.lissandrocunha.api.domain.consulta.DadosCancelamentoConsulta;
 import dev.lissandrocunha.api.domain.consulta.DadosDetalhamentoConsulta;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,4 +34,17 @@ public class ConsultaController {
                         new DadosDetalhamentoConsulta(null, null, null, null)
                 );
     }
+
+    @DeleteMapping
+    @Transactional
+    public ResponseEntity<Void> cancelar(
+        @RequestBody @Valid DadosCancelamentoConsulta dados
+    ){
+        agendaDeConsultasService.cancelar(dados);
+
+        return ResponseEntity
+                .noContent()
+                .build();
+    }
+
 }
